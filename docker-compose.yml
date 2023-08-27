@@ -2,15 +2,17 @@ version: '3.1'
 services:
   a_web:
     build:
-      context: C:\Users\adminos\dev\prj-project\a_web
+      context: ./a_web
     ports:
       - "80:80"
     volumes:
-      - C:\Users\adminos\dev\prj-project\a_db\logs:/var/log/nginx
+      - ./a_db/logs:/var/log/nginx
     depends_on:
       - a_app
   a_app:
     build:
-      context: C:\Users\adminos\dev\prj-project\a_app
+      context: ./a_app
     ports:
-      - "8000:8000"
+      - "5000:5000"
+    volumes:
+      - ./a_app:/a_app
